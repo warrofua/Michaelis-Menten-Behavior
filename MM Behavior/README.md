@@ -14,19 +14,25 @@ Where:
 - E: Amount of experience or exposure to stimuli
 - K_b: Constant that indicates the amount of experience required for the learning rate to reach half of its maximum value
 
-## How to Use
+How to Use:
 
-1. Install the required dependencies:
+Download all the necessary files from the repository.
+
+Open the command line or terminal and navigate to the folder where you downloaded the files.
+
+Install the required dependencies by running:
 
 pip install -r requirements.txt
 
-2. Run the Flask app:
+Start the Flask app by executing:
 
 python app.py
 
-3. Open your web browser and go to `http://127.0.0.1:5000/` to access the web app.
+Open your web browser and visit http://127.0.0.1:5000/ to access the web app.
 
-4. Input the R_max, K_b, E_min, and E_max values, and click the "Calculate" button. The web app will generate a graph that displays the relationship between the rate of learning (R) and the amount of experience (E) based on the provided values.
+Enter the R_max, K_b, E_min, and E_max values in the corresponding input fields, and click the "Calculate" button.
+
+The web app will display a graph illustrating the relationship between the rate of learning (R) and the amount of experience (E) based on your input values.
 
 ## License
 
