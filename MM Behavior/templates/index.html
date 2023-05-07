@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Michaelis-Menten Equation Web App</title>
+    <style>
+        #definitions {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleDefinitions() {
+            var definitionsDiv = document.getElementById("definitions");
+            if (definitionsDiv.style.display === "none") {
+                definitionsDiv.style.display = "block";
+            } else {
+                definitionsDiv.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Learning Rate vs Experience</h1>
+    <button onclick="toggleDefinitions()">Toggle Definitions</button>
+    <div id="definitions">
+        <h2>Definitions</h2>
+        <p><strong>R (Rate of Learning or Improvement):</strong> The rate at which a learner acquires a new skill or behavior, or the rate of improvement in an existing skill or behavior. It can be quantified in various ways, such as the number of successful trials per session or the percentage of correct responses.</p>
+        <p><strong>R_max (Maximum Rate of Learning or Improvement):</strong> The maximum possible rate at which a learner can acquire a new skill or behavior, or improve an existing skill or behavior. This value may vary depending on individual differences, the complexity of the skill or behavior, and the effectiveness of the teaching strategies employed.</p>
+        <p><strong>E (Experience or Exposure to Stimuli):</strong> The amount of experience a learner has had with a particular skill or behavior, or the extent to which they have been exposed to relevant stimuli in their environment. In ABA therapy, this can include the number of teaching trials, the duration of intervention, or the number of opportunities to practice a skill or behavior.</p>
+        <p><strong>K_b (Constant representing experience or exposure required for half-maximal learning rate):</strong> A constant that represents the amount of experience or exposure to stimuli required for a learner to reach half of their maximum possible learning or improvement rate. This value can help to determine the point of diminishing returns, where additional experience or exposure results in smaller gains in learning or improvement.</p>
+    </div>
+    <p>
+        This web app uses an adapted version of the Michaelis-Menten equation to model the relationship between the rate of learning (R) and the amount of experience or exposure to stimuli (E) in a reinforcement learning scenario:
+    </p>
+    <p><strong>R = (R_max * E) / (K_b + E)</strong></p>
+    <p>
+        Here, R_max represents the maximum possible rate of learning or improvement, and K_b is a constant that indicates the amount of experience or exposure required for the learning rate to reach half of its maximum value. This equation is a conceptual exploration and should be validated empirically before applying it to real-world scenarios.
+    </p>
+    <form method="POST" action="/" enctype="multipart/form-data">   
+        <label for="r_max">R_max:</label>
+        <input type="number" step="any" id="r_max" name="r_max" required>
+        <label for="k_b">K_b:</label>
+        <input type="number" step="any" id="k_b" name="k_b" required>
+        <label for="e_min">E_min:</label>
+        <input type="number" step="any" id="e_min" name="e_min" required>
+        <label for="e_max">E_max:</label>
+        <input type="number" step="any" id="e_max" name="e_max" required>
+        <button type="submit">Calculate</button>
+    </form>
+    {% if graph_url %}
+        <img src="data:image/png;base64,{{ graph_url }}" alt="Graph of Learning Rate vs Experience">
+    {% endif %}
+</body>
+</html>
