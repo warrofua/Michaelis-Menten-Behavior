@@ -1,4 +1,4 @@
-# ABA Therapy Learning Rate Web App
+# Learning Rate Web App
 
 This web application is designed to help visualize the relationship between the rate of learning (R) and the amount of experience or exposure to stimuli (E) in the context of Applied Behavior Analysis (ABA) therapy. It uses an adapted version of the Michaelis-Menten equation to model this relationship.
 
